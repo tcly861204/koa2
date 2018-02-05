@@ -5,17 +5,26 @@ const autoprefixer = require('autoprefixer');
 const cssnext = require('cssnext');
 const precss = require('precss');
 const cssmin = require('gulp-minify-css');
+const uglify = require("gulp-uglify");
 const stylus = require('gulp-stylus');
+
+const uglifyOptions ={
+  mangle: true,//类型：Boolean 默认：true 是否修改变量名
+  compress: true,//类型：Boolean 默认：true 是否完全压缩
+};
+
 /*编译js*/
 gulp.task('babelTask', function() {
     return gulp.src("./dev/*/*.js")
       .pipe(babel())
+      .pipe(uglify(uglifyOptions))
       .pipe(gulp.dest("./"));
 });
 /*编译js*/
 gulp.task("babelHomeTask",function(){
   return gulp.src("./dev/*.js")
       .pipe(babel())
+      .pipe(uglify(uglifyOptions))
       .pipe(gulp.dest("./"));
 });
 
