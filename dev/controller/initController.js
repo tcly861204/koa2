@@ -20,7 +20,7 @@ const controllerInit = {
         }
       }),
       _.get('/admin/login',_admin.login()),
-      _.get('/admin/login?action=login',(ctx,next)=>{
+      _.post('/admin/login/action',(ctx,next)=>{
         console.log(ctx);
       })
     }));

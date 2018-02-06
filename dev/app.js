@@ -32,7 +32,6 @@ initController.init(app,router);
 
 //处理页面错误
 app.on("error",(err,ctx)=>{
-  console.log(err)
   log.error('server error', err, ctx);
 });
 
